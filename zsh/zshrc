@@ -1,0 +1,21 @@
+export PATH=/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/bin:/usr/local/sbin:$HOME/.npm-packages/bin:/usr/local/opt/postgresql@9.6/bin:$PATH
+
+# emacs mode 
+bindkey -e
+
+# set colors
+autoload -U colors && colors
+
+# prompts
+export PROMPT="
+ <%?> [%~] $program %{$fg[default]%}
+ %{$fg[magenta]%}[%*] %{$fg[cyan]%}%n@%M %{$fg[default]%}$ "
+
+# ls preferences
+alias ls='ls -Fhp'
+export CLICOLOR=1
+export LSCOLORS='GxFxCxDxBxegedabagaced'
+
+# other aliases
+alias python3.6='python3'
+

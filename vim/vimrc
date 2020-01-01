@@ -1,0 +1,79 @@
+""" save settings 
+set confirm
+set hidden
+set autoread
+set history=1000
+
+"""" user interface settings
+set ruler
+set scrolloff=2
+set sidescrolloff=5
+set number relativenumber
+set backspace=indent,eol,start
+
+set wildmenu
+
+" colors
+syntax enable
+set t_Co=256
+set background=dark
+
+""" disable error bells
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+"""" keyboard remaps
+:let mapleader = ","
+inoremap jj <ESC>
+nnoremap <Leader><space> :noh<cr>
+
+"""" faster window keys 
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+"""" tab settings
+set smarttab
+set softtabstop=4 shiftwidth=4 expandtab
+
+"""" search settings
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+"""" plugin settings 
+" install vim-plug if not present
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/plugged')
+
+" install plugins
+" run :PlugInstall after adding a new one
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpop/vim-repeat'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'dracula/vim', { 'as': 'dracula' }
+
+" initialize plugin system
+call plug#end()
+filetype plugin indent on
+
+" theme-specific
+" to match background, set terminal to RGB(48,48,48)
+let g:dracula_italic = 0
+color dracula
+
+
+" airline settings
+" set laststatus=2
+" let g:airline_powerline_fonts=1
+" let g:airline#extensions#tabline#enabled=1
