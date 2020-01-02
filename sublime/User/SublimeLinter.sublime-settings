@@ -1,0 +1,10 @@
+// SublimeLinter Settings - User
+{
+    "lint_mode": "save",
+    "show_panel_on_save": "view",
+    "linters": {
+      "pycodestyle": {
+        "disable": false
+      }
+    }
+}

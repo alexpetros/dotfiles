@@ -1,0 +1,82 @@
+{
+	"added_words":
+	[
+		"Medvedev",
+		"vertices",
+		"kayaker",
+		"cybersecurity",
+		"cyberattack",
+		"internet",
+		"internet's",
+		"cyberattacks",
+		"cyber",
+		"transformative",
+		"timeline",
+		"Petros",
+		"liminal"
+	],
+	"auto_complete_commit_on_tab": true,
+	"auto_complete_triggers":
+	[
+		{
+			"characters": ".",
+			"selector": "source.python - string - comment - constant.numeric"
+		},
+		{
+			"characters": "\\",
+			"selector": "text.tex.latex"
+		}
+	],
+	"color_scheme": "Monokai.sublime-color-scheme",
+	"ensure_newline_at_eof_on_save": true,
+	"file_exclude_patterns":
+	[
+		"*.pyc",
+		"*.class",
+		"*.lock",
+		"package-lock.json",
+		".DS_Store",
+		"*.aux",
+		"*.bbl",
+		"*.blg",
+		"*.log",
+		"*.out",
+		"*.sta",
+		"*.pdf",
+		"*.bcf",
+		"*.run.xml",
+		"*.synctex.gz",
+		"*.Rhistory",
+		"*.fdb_latexmk",
+		"*.fls",
+		"*.toc"
+	],
+	"folder_exclude_patterns":
+	[
+		".git",
+		"node_modules",
+		"dist",
+		"www"
+	],
+	"font_size": 15,
+	"ignored_packages":
+	[
+		"Markdown",
+		"Vintage"
+	],
+	"ignored_words":
+	[
+		"7ex",
+		"find's",
+		"govdefault"
+	],
+	"shift_tab_unindent": true,
+	"show_full_path": true,
+	"tab_size": 4,
+	"theme": "Agila Dracula.sublime-theme",
+	"theme_agila_sidebar_font_small": true,
+	"theme_agila_sidebar_small": true,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"vintage_start_in_command_mode": true
+}

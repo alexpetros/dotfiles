@@ -10,12 +10,12 @@ The installation script is "safe," so if you have an existing config, it will si
 
 ## todo
 * New configs
-    * Add Sublime user folder
     * Add global gitignore
     * Prettify Vim config
     * Breakdown ZSH into components
 * Scripts
     * Option on script to nuke existing configs, if they exist
+    * Automatic Sublime installation
     * Make backups before installing
 
 ## inspiration

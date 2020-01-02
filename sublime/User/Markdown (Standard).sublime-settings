@@ -1,0 +1,9 @@
+{
+  "color_scheme": "Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme",
+  "spell_check": true,
+  "tab_size": 4,
+  "extensions":
+  [
+    "md"
+  ]
+}

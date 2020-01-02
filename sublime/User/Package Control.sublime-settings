@@ -1,0 +1,40 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"Agila Theme",
+		"Anaconda",
+		"ANSIescape",
+		"AutoFileName",
+		"Babel",
+		"Babel Snippets",
+		"CSS Extended Completions",
+		"DocBlockr",
+		"DocBlockr_Python",
+		"ESLint-Formatter",
+		"Git",
+		"Git Conflict Resolver",
+		"JSON Reindent",
+		"LaTeX Word Count",
+		"LaTeX-cwl",
+		"LaTeXTools",
+		"MarkdownEditing",
+		"Package Control",
+		"Sass",
+		"SCSS",
+		"SideBarEnhancements",
+		"Stylus",
+		"SublimeLinter",
+		"SublimeLinter-eslint",
+		"SublimeLinter-pycodestyle",
+		"Theme - Flatland"
+	],
+	"repositories":
+	[
+		"https://github.com/babel/babel-sublime"
+	]
+}

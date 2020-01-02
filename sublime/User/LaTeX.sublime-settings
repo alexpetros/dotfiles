@@ -1,0 +1,6 @@
+// These settings override both User and Default settings for the LaTeX syntax
+{
+    "save_on_focus_lost": true,
+    "spell_check": true,
+    "translate_tabs_to_spaces": false,
+}

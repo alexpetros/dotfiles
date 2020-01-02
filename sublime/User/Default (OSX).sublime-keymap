@@ -1,0 +1,19 @@
+[
+  {
+  "keys": ["ctrl+shift+,"],
+  "command": "insert_snippet",
+  "args": {
+    "name": "Packages/Babel Snippets/react_wrap.sublime-snippet"
+    },
+  },
+  {
+    "keys": ["j", "j"],
+    "command": "exit_insert_mode",
+    "context":
+    [
+        { "key": "setting.command_mode", "operand": false },
+        { "key": "setting.is_widget", "operand": false }
+    ]
+  }
+
+]

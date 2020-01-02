@@ -1,0 +1,7 @@
+{
+  "scope": "text.tex.latex",
+  "completions": [
+    { "trigger": "fc", "contents": "\\footcite" },
+    { "trigger": "enq", "contents": "\\enquote{${1:quote}}$0" },
+  ]
+}
