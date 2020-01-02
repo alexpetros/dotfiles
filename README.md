@@ -8,6 +8,8 @@ Run `make` in the repo root directory to create the symlinks which "install" the
 
 The installation script is "safe," so if you have an existing config, it will simply inform you that one already existis and leave it untouched.
 
+Sublime installation is manual, for now.
+
 ## todo
 * New configs
     * Add global gitignore
