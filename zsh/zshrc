@@ -1,4 +1,15 @@
-export PATH=/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/bin:/usr/local/sbin:$HOME/.npm-packages/bin:/usr/local/opt/postgresql@9.6/bin:$PATH
+# main path
+export PATH="/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/bin:/usr/local/sbin:$PATH"
+
+# postgres installation
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+
+# ruby installation
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
+
+# npm installation
+export PATH="$HOME/.npm-packages/bin:$PATH"
 
 # emacs mode 
 bindkey -e
