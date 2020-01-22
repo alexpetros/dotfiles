@@ -14,7 +14,9 @@ Sublime installation is manual, for now.
 * New configs
     * Add global gitignore
     * Prettify Vim config
-    * Breakdown ZSH into components
+    * Breakdown ZSH into components 
+        * Designated slot for local configs
+        * OSX and Linux-specific paths
 * Scripts
     * Option on script to nuke existing configs, if they exist
     * Automatic Sublime installation
