@@ -13,7 +13,9 @@
 		"transformative",
 		"timeline",
 		"Petros",
-		"liminal"
+		"liminal",
+		"securitization",
+		"securitize"
 	],
 	"auto_complete_commit_on_tab": true,
 	"auto_complete_triggers":
@@ -56,7 +58,8 @@
 		".git",
 		"node_modules",
 		"dist",
-		"www"
+		"www",
+		"venv"
 	],
 	"font_size": 15,
 	"ignored_packages":
