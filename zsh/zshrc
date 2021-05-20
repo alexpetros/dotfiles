@@ -27,6 +27,14 @@ alias ls='ls -Fhp'
 export CLICOLOR=1
 export LSCOLORS='GxFxCxDxBxegedabagaced'
 
-# other aliases
-alias python3.6='python3'
+# The following lines were added by compinstall
 
+zstyle ':completion:*' completer _expand _complete _ignored _approximate
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-rompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'r:|[._-]=**' 'l:|=* r:|=*'
+zstyle :compinstall filename '/Users/apetros/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall

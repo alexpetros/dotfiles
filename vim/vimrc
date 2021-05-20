@@ -1,43 +1,70 @@
-""" save settings 
+"""" save settings 
 set confirm
 set hidden
 set autoread
 set history=1000
 
-"""" user interface settings
+"""" for certain filetypes, remove trailing whitespace
+autocmd FileType c,java,javascript,markdown  autocmd BuffWritePre <buffer> %s/\s\+$//e
+
+"""" tab settings
+set smarttab
+set softtabstop=4 shiftwidth=4 expandtab
+
+"""" syntax-specific settings
+set colorcolumn=+1
+autocmd FileType java setlocal textwidth=120
+autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2
+
+""""" user interface settings
 set ruler
 set scrolloff=2
 set sidescrolloff=5
 set number relativenumber
 set backspace=indent,eol,start
+set lazyredraw
 
+"""" search settings
+set path+=**
 set wildmenu
+set wildignore+=**/build/**
+set wildignore+=**/node_modules/**
 
-" colors
+"""" colors
 syntax enable
 set t_Co=256
 set background=dark
 
-""" disable error bells
+"""" disable error bells
 set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
 
+"""" file browser settings
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+let g:netrw_list_hide=',\(^\|\s\s\)\zs\.\S+'
+
+"""" autocomplete
+inoremap <Leader>c </<C-x><C-o>
+
 """" keyboard remaps
 :let mapleader = ","
 inoremap jj <ESC>
+inoremap <Esc><BS> <C-w>
 nnoremap <Leader><space> :noh<cr>
+
+"""" search commands
+nnoremap <C-p> :find<space>
+nnoremap <C-f> :!grep<space>-rli<space>
+imap <C-f> <ESC><C-f>
 
 """" faster window keys 
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-
-"""" tab settings
-set smarttab
-set softtabstop=4 shiftwidth=4 expandtab
 
 """" search settings
 set incsearch
@@ -58,8 +85,9 @@ call plug#begin('~/.vim/plugged')
 " run :PlugInstall after adding a new one
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'tpop/vim-repeat'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
@@ -72,6 +100,12 @@ filetype plugin indent on
 let g:dracula_italic = 0
 color dracula
 
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_eslint_exe='npm run lint --'
 
 " airline settings
 " set laststatus=2
