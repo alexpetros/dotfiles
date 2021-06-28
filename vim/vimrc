@@ -5,7 +5,7 @@ set autoread
 set history=1000
 
 """" for certain filetypes, remove trailing whitespace
-autocmd FileType c,java,javascript,markdown  autocmd BuffWritePre <buffer> %s/\s\+$//e
+autocmd FileType c,java,javascript,markdown autocmd BufWritePre <buffer> %s/\s\+$//e
 
 """" tab settings
 set smarttab
@@ -55,11 +55,6 @@ inoremap jj <ESC>
 inoremap <Esc><BS> <C-w>
 nnoremap <Leader><space> :noh<cr>
 
-"""" search commands
-nnoremap <C-p> :find<space>
-nnoremap <C-f> :!grep<space>-rli<space>
-imap <C-f> <ESC><C-f>
-
 """" faster window keys 
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -87,8 +82,11 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-syntastic/syntastic'
+Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'sheerun/vim-polyglot'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " initialize plugin system
@@ -100,12 +98,30 @@ filetype plugin indent on
 let g:dracula_italic = 0
 color dracula
 
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_javascript_eslint_exe='npm run lint --'
+"""" FZF search commands
+" require OS installation of ripgrep
+nnoremap <C-p> :GFiles<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>h :History<CR>
+nnoremap <Leader>T :Tags<CR>
+nnoremap <C-f> :!grep<space>-rli<space>
+imap <C-f> <ESC><C-f>
+
+
+" ALE linter settings
+" for eslint prettier, run npm install -g eslint-plugin-prettier prettier
+nnoremap <Leader>n :lnext<CR>
+nnoremap <Leader>m :lprevious<CR>
+let g:ale_linters = {
+\   'javascript': ['flow', 'eslint'],
+\}
+let g:ale_fixers = {
+\    'javascript': ['eslint'],
+\    'typescript': ['prettier', 'tslint'],
+\    'scss': ['prettier'],
+\    'html': ['prettier'],
+\}
+let g:ale_fix_on_save = 1
 
 " airline settings
 " set laststatus=2
