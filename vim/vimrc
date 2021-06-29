@@ -4,8 +4,8 @@ set hidden
 set autoread
 set history=1000
 
-"""" for certain filetypes, remove trailing whitespace
-autocmd FileType c,java,javascript,markdown autocmd BufWritePre <buffer> %s/\s\+$//e
+"""" remove trailing whitespace for all files
+autocmd BufWritePre <buffer> %s/\s\+$//e
 
 """" tab settings
 set smarttab
@@ -99,16 +99,17 @@ let g:dracula_italic = 0
 color dracula
 
 """" FZF search commands
-" require OS installation of ripgrep
 nnoremap <C-p> :GFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>T :Tags<CR>
-nnoremap <C-f> :!grep<space>-rli<space>
+
+" requires OS installation of ripgrep
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+nnoremap <C-f> :grep<space>
 imap <C-f> <ESC><C-f>
 
-
-" ALE linter settings
+""" ALE linter settings
 " for eslint prettier, run npm install -g eslint-plugin-prettier prettier
 nnoremap <Leader>n :lnext<CR>
 nnoremap <Leader>m :lprevious<CR>
