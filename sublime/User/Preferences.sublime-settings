@@ -22,11 +22,11 @@
 	[
 		{
 			"characters": ".",
-			"selector": "source.python - string - comment - constant.numeric"
+			"selector": "source.python - string - comment - constant.numeric",
 		},
 		{
 			"characters": "\\",
-			"selector": "text.tex.latex"
+			"selector": "text.tex.latex",
 		}
 	],
 	"color_scheme": "Monokai.sublime-color-scheme",
@@ -65,7 +65,7 @@
 	"ignored_packages":
 	[
 		"Markdown",
-		"Vintage"
+		"Vintage",
 	],
 	"ignored_words":
 	[
@@ -81,5 +81,5 @@
 	"theme_agila_sidebar_small": true,
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
-	"vintage_start_in_command_mode": true
+	"vintage_start_in_command_mode": true,
 }
