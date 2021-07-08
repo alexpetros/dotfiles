@@ -1,4 +1,4 @@
-"""" save settings 
+"""" save settings
 set confirm
 set hidden
 set autoread
@@ -13,7 +13,7 @@ set softtabstop=4 shiftwidth=4 expandtab
 
 """" syntax-specific settings
 set colorcolumn=+1
-autocmd FileType java setlocal textwidth=120
+autocmd FileType java,javascript setlocal textwidth=120
 autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2
 
 """"" user interface settings
@@ -31,7 +31,8 @@ set wildignore+=**/build/**
 set wildignore+=**/node_modules/**
 
 """" colors
-syntax enable
+syntax on
+set re=0
 set t_Co=256
 set background=dark
 
@@ -55,7 +56,7 @@ inoremap jj <ESC>
 inoremap <Esc><BS> <C-w>
 nnoremap <Leader><space> :noh<cr>
 
-"""" faster window keys 
+"""" faster window keys
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -67,7 +68,7 @@ set hlsearch
 set ignorecase
 set smartcase
 
-"""" plugin settings 
+"""" plugin settings
 " install vim-plug if not present
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -76,20 +77,41 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
 
-" install plugins
+""" install plugins
 " run :PlugInstall after adding a new one
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
-Plug 'dense-analysis/ale'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'sheerun/vim-polyglot'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'christoomey/vim-tmux-navigator'
 
-" initialize plugin system
+""" JS language server
+" run :CocInstall coc-tsserver coc-json coc-eslint
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Symbol renaming.
+ nmap <leader>rn <Plug>(coc-rename)
+
+ " Formatting selected code.
+ nmap <leader>a <Plug>(coc-codeaction)
+ nmap <leader>l :CocCommand eslint.executeAutofix<CR>
+
+ " initialize plugin system
 call plug#end()
 filetype plugin indent on
 
@@ -106,23 +128,9 @@ nnoremap <Leader>T :Tags<CR>
 
 " requires OS installation of ripgrep
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
-nnoremap <C-f> :grep<space>
+nnoremap <C-f> :Rg<CR>
+" nnoremap <C-f> :grep<space>
 imap <C-f> <ESC><C-f>
-
-""" ALE linter settings
-" for eslint prettier, run npm install -g eslint-plugin-prettier prettier
-nnoremap <Leader>n :lnext<CR>
-nnoremap <Leader>m :lprevious<CR>
-let g:ale_linters = {
-\   'javascript': ['flow', 'eslint'],
-\}
-let g:ale_fixers = {
-\    'javascript': ['eslint'],
-\    'typescript': ['prettier', 'tslint'],
-\    'scss': ['prettier'],
-\    'html': ['prettier'],
-\}
-let g:ale_fix_on_save = 1
 
 " airline settings
 " set laststatus=2

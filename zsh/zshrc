@@ -1,5 +1,5 @@
 # main path
-export PATH="/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/bin:/usr/local/sbin:$PATH"
+export PATH="/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/bin:/usr/local/sbin:$HOME/bin:$PATH"
 
 # postgres installation
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
@@ -11,7 +11,13 @@ export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 # npm installation
 export PATH="$HOME/.npm-packages/bin:$PATH"
 
-# emacs mode 
+# sublime installation
+export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+
+# use node 12 over other versions
+export PATH="/usr/local/opt/node@12/bin:$PATH"
+
+# emacs mode
 bindkey -e
 
 # set colors
