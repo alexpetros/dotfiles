@@ -4,6 +4,9 @@ set hidden
 set autoread
 set history=1000
 
+""" shell settings
+set shell=/bin/zsh
+
 """" remove trailing whitespace for all files
 autocmd BufWritePre <buffer> %s/\s\+$//e
 
@@ -23,6 +26,9 @@ set sidescrolloff=5
 set number relativenumber
 set backspace=indent,eol,start
 set lazyredraw
+
+" paste mode lets you paste without indents
+set pastetoggle=<F3>
 
 """" search settings
 set path+=**
@@ -54,6 +60,8 @@ inoremap <Leader>c </<C-x><C-o>
 :let mapleader = ","
 inoremap jj <ESC>
 inoremap <Esc><BS> <C-w>
+cnoremap <Esc><BS> <C-w>
+nnoremap <Leader>= gg=G<C-o><C-o>
 nnoremap <Leader><space> :noh<cr>
 
 """" faster window keys

@@ -1,22 +1,3 @@
-# main path
-export PATH="/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/bin:/usr/local/sbin:$HOME/bin:$PATH"
-
-# postgres installation
-export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
-
-# ruby installation
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
-
-# npm installation
-export PATH="$HOME/.npm-packages/bin:$PATH"
-
-# sublime installation
-export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
-
-# use node 12 over other versions
-export PATH="/usr/local/opt/node@12/bin:$PATH"
-
 # emacs mode
 bindkey -e
 
@@ -33,8 +14,17 @@ alias ls='ls -Fhp'
 export CLICOLOR=1
 export LSCOLORS='GxFxCxDxBxegedabagaced'
 
-# The following lines were added by compinstall
+# github aliases
+alias cr='gh pr create --web'
+alias cr-pull='git fetch && git checkout'
 
+# edit command in editor
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+
+# The following lines were added by compinstall
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-rompt %SAt %p: Hit TAB for more, or the character to insert%s
