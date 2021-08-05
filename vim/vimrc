@@ -48,6 +48,10 @@ set novisualbell
 set t_vb=
 set tm=500
 
+""" commands
+command PrintLink echo printf("%s/%s#L%d", trim(system('gh-link')), @%, line("."))
+command CodeLink redir @* | PrintLink
+
 """" file browser settings
 let g:netrw_banner=0
 let g:netrw_liststyle=3
