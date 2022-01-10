@@ -15,5 +15,8 @@ ln $ln_flags $repo_dir/zsh/zshrc ~/.zshrc
 ln $ln_flags $repo_dir/zsh/zshenv ~/.zshenv
 ln $ln_flags $repo_dir/latex/latexmkrc ~/.latexmkrc
 
+# Create empty local zshrc if one doesn't exist
+touch ~/.zshrc.local
+
 echo 'make-symlinks executed succesfully'
 exit 0
