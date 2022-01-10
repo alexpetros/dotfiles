@@ -16,8 +16,9 @@ set softtabstop=4 shiftwidth=4 expandtab
 
 """" syntax-specific settings
 set colorcolumn=+1
-autocmd FileType java,javascript,markdown,typescript,typescriptreact setlocal textwidth=120
+autocmd FileType python setlocal textwidth=80
 autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2
+autocmd FileType java,javascript,markdown,typescript,typescriptreact setlocal textwidth=120
 
 """"" user interface settings
 set ruler
