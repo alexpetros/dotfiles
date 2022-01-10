@@ -8,7 +8,7 @@ set history=1000
 set shell=/bin/zsh
 
 """" remove trailing whitespace for all files
-autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
 
 """" tab settings
 set smarttab
@@ -16,7 +16,7 @@ set softtabstop=4 shiftwidth=4 expandtab
 
 """" syntax-specific settings
 set colorcolumn=+1
-autocmd FileType java,javascript setlocal textwidth=120
+autocmd FileType java,javascript,typescript,typescriptreact setlocal textwidth=120
 autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2
 
 """"" user interface settings
@@ -67,6 +67,7 @@ inoremap <Esc><BS> <C-w>
 cnoremap <Esc><BS> <C-w>
 nnoremap <Leader>= gg=G<C-o><C-o>
 nnoremap <Leader><space> :noh<cr>
+nnoremap ,d :b#<bar>bd#<CR>
 
 """" faster window keys
 map <C-j> <C-W>j
@@ -101,9 +102,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'sheerun/vim-polyglot'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'christoomey/vim-tmux-navigator'
+" Plug 'leafgarland/typescript-vim'
 
-""" JS language server
-" run :CocInstall coc-tsserver coc-json coc-eslint
+""" LSP installation
+" run :CocInstall coc-tsserver coc-json coc-eslint coc-java
+" note that you will need to set the JDK_HOME env variable for java
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " GoTo code navigation.
@@ -122,6 +125,16 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
  " Formatting selected code.
  nmap <leader>a <Plug>(coc-codeaction)
  nmap <leader>l :CocCommand eslint.executeAutofix<CR>
+
+ " Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
  " initialize plugin system
 call plug#end()
