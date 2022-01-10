@@ -25,11 +25,12 @@
 		"Sass",
 		"SCSS",
 		"SideBarEnhancements",
+		"SqlBeautifier",
 		"Stylus",
 		"SublimeLinter",
 		"SublimeLinter-eslint",
 		"SublimeLinter-pycodestyle",
-		"Theme - Flatland"
+		"Theme - Flatland",
 	],
 	"repositories":
 	[
