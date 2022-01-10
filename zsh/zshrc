@@ -15,8 +15,8 @@ export CLICOLOR=1
 export LSCOLORS='GxFxCxDxBxegedabagaced'
 
 # github aliases
-alias cr='gh pr create --web'
-alias cr-pull='git fetch && git checkout'
+alias pr='gh pr create --web'
+alias pr-pull='git fetch && git checkout'
 
 # edit command in editor
 autoload -U edit-command-line
@@ -34,3 +34,5 @@ zstyle :compinstall filename '/Users/apetros/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+source "$HOME/.zshrc.local"

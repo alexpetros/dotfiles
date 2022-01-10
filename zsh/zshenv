@@ -14,9 +14,6 @@ export PATH="$HOME/.npm-packages/bin:$PATH"
 # sublime installation
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
-# use node 12 over other versions
-export PATH="/usr/local/opt/node@12/bin:$PATH"
-
 # non-interactive commands
 alias gh-link="git remote -v | grep fetch | awk '{print \$2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//' | sed 's/\.git/\/tree\/main/'"
 
