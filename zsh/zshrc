@@ -18,6 +18,9 @@ export LSCOLORS='GxFxCxDxBxegedabagaced'
 alias pr='gh pr create --web'
 alias pr-pull='git fetch && git checkout'
 
+# beep when done!
+alias beep="echo -n '\a'"
+
 # edit command in editor
 autoload -U edit-command-line
 zle -N edit-command-line
