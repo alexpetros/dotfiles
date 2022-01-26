@@ -16,7 +16,7 @@ set softtabstop=4 shiftwidth=4 expandtab
 
 """" syntax-specific settings
 set colorcolumn=+1
-autocmd FileType java,javascript,typescript,typescriptreact setlocal textwidth=120
+autocmd FileType java,javascript,markdown,typescript,typescriptreact setlocal textwidth=120
 autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2
 
 """"" user interface settings
