@@ -1,4 +1,7 @@
-# Append to path
+# Prepend HOME bin to path
+path=("$HOME/bin" $path)
+
+# Append installation to path
 path+="/usr/local/Cellar/"
 path+="$HOME/.npm-packages/bin"
 path+="/Applications/Sublime Text.app/Contents/SharedSupport/bin"
