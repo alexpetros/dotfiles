@@ -12,7 +12,7 @@ ln_flags='-sv'
 ln $ln_flags $repo_dir/vim/vimrc ~/.vimrc
 ln $ln_flags $repo_dir/tmux/tmux.conf ~/.tmux.conf
 ln $ln_flags $repo_dir/zsh/zshrc ~/.zshrc
-ln $ln_flags $repo_dir/zsh/zshenv ~/.zshenv
+ln $ln_flags $repo_dir/zsh/zprofile ~/.zprofile
 ln $ln_flags $repo_dir/latex/latexmkrc ~/.latexmkrc
 
 # Create empty local zshrc if one doesn't exist
