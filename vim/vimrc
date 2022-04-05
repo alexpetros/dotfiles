@@ -2,6 +2,7 @@
 set confirm
 set hidden
 set autoread
+set autowrite
 set history=1000
 
 """ shell settings
@@ -53,6 +54,10 @@ set tm=500
 command PrintLink echo printf("%s/%s#L%d", trim(system('gh-link')), @%, line("."))
 command CodeLink redir @* | PrintLink
 
+"""" make programs
+autocmd FileType python set makeprg=python\ %
+autocmd FileType scala set makeprg=scala\ %
+
 """" file browser settings
 let g:netrw_banner=0
 let g:netrw_liststyle=3
@@ -69,6 +74,7 @@ cnoremap <Esc><BS> <C-w>
 nnoremap <Leader>= gg=G<C-o><C-o>
 nnoremap <Leader><space> :noh<cr>
 nnoremap ,d :b#<bar>bd#<CR>
+nnoremap <C-b> :make<CR>
 
 """" faster window keys
 map <C-j> <C-W>j
@@ -93,6 +99,7 @@ call plug#begin('~/.vim/plugged')
 
 """ install plugins
 " run :PlugInstall after adding a new one
+Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -100,7 +107,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'sheerun/vim-polyglot'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'christoomey/vim-tmux-navigator'
 " Plug 'leafgarland/typescript-vim'
