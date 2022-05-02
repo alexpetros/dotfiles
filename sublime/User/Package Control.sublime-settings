@@ -16,6 +16,8 @@
 		"ESLint-Formatter",
 		"Git",
 		"Git Conflict Resolver",
+		"HTMLBeautify",
+		"Indent XML",
 		"JSON Reindent",
 		"LaTeX Word Count",
 		"LaTeX-cwl",
