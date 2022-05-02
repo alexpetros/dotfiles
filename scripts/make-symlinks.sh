@@ -10,6 +10,7 @@ ln_flags='-sv'
 
 # Crate symlinks (will fail if file exists)
 ln $ln_flags $repo_dir/vim/vimrc ~/.vimrc
+ln $ln_flags $repo_dir/vim/after ~/.vim/after
 ln $ln_flags $repo_dir/tmux/tmux.conf ~/.tmux.conf
 ln $ln_flags $repo_dir/zsh/zshrc ~/.zshrc
 ln $ln_flags $repo_dir/zsh/zprofile ~/.zprofile

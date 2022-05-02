@@ -19,7 +19,7 @@ set softtabstop=4 shiftwidth=4 expandtab
 set colorcolumn=+1
 autocmd FileType python setlocal textwidth=80
 autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2
-autocmd FileType java,javascript,markdown,typescript,typescriptreact setlocal textwidth=120
+autocmd FileType java,typescript,typescriptreact setlocal textwidth=120
 
 """"" user interface settings
 set ruler
@@ -51,12 +51,13 @@ set t_vb=
 set tm=500
 
 """ commands
-command PrintLink echo printf("%s/%s#L%d", trim(system('gh-link')), @%, line("."))
+command PrintLink echo printf("%s /%s#L%d", trim(system('gh-link')), @%, line("."))
 command CodeLink redir @* | PrintLink
 
 """" make programs
 autocmd FileType python set makeprg=python\ %
 autocmd FileType scala set makeprg=scala\ %
+autocmd FileType scheme set makeprg=guile\ %
 
 """" file browser settings
 let g:netrw_banner=0
@@ -70,11 +71,12 @@ inoremap <Leader>c </<C-x><C-o>
 :let mapleader = ","
 inoremap jj <ESC>
 inoremap <Esc><BS> <C-w>
+inoremap <C-CR> <Esc>o
 cnoremap <Esc><BS> <C-w>
 nnoremap <Leader>= gg=G<C-o><C-o>
 nnoremap <Leader><space> :noh<cr>
 nnoremap ,d :b#<bar>bd#<CR>
-nnoremap <C-b> :make<CR>
+nnoremap <C-b> :make!<CR>
 
 """" faster window keys
 map <C-j> <C-W>j
@@ -109,10 +111,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'leafgarland/typescript-vim'
+
+""" Language-specific
+Plug 'evanleck/vim-svelte'
+Plug 'mattn/emmet-vim'
 
 """ LSP installation
-" run :CocInstall coc-tsserver coc-json coc-eslint coc-java
+" run :CocInstall coc-tsserver coc-json coc-eslint
 " note that you will need to set the JDK_HOME env variable for java
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -147,7 +152,12 @@ endfunction
 call plug#end()
 filetype plugin indent on
 
-" theme-specific
+""" Emmet settings
+let g:user_emmet_leader_key='*'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
+""" Theme settings
 " to match background, set terminal to RGB(48,48,48)
 let g:dracula_italic = 0
 color dracula
