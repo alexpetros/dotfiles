@@ -1,6 +1,9 @@
 # emacs mode
 bindkey -e
 
+# tab stop size
+tabs -2
+
 # set colors
 autoload -U colors && colors
 
