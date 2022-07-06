@@ -23,5 +23,7 @@ touch $HOME/.zshrc.local
 curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+vim +'PlugInstall --sync' +qa
+
 echo 'make-symlinks executed succesfully'
 exit 0
