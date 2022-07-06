@@ -2,6 +2,7 @@ set -ev
 
 export USERNAME="awp"
 
+# Create non-root user with the authorized ssh keys; note that this is a passwordless account
 useradd -m -s /bin/bash $USERNAME
 usermod -aG sudo $USERNAME
 rsync --archive --chown=$USERNAME:$USERNAME ~/.ssh /home/$USERNAME
@@ -14,6 +15,7 @@ apt-get -y install nginx make fzf
 systemctl status nginx
 curl localhost:80 2>/dev/null | grep nginx > /dev/null
 
+# Setup firewall to only allow nginx and ssh access
 ufw allow 'OpenSSH'
 ufw allow 'Nginx Full'
 ufw --force enable
