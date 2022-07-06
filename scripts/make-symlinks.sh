@@ -17,10 +17,10 @@ ln $ln_flags $repo_dir/zsh/zprofile ~/.zprofile
 ln $ln_flags $repo_dir/latex/latexmkrc ~/.latexmkrc
 
 # Create empty local zshrc if one doesn't exist
-touch ~/.zshrc.local
+touch $HOME/.zshrc.local
 
 # Install vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo 'make-symlinks executed succesfully'
