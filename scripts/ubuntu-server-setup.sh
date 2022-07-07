@@ -21,6 +21,13 @@ ufw allow 'Nginx Full'
 ufw --force enable
 ufw status
 
+# Disable password authentication on ssh (yes I'm using ed)
+ed /etc/ssh/sshd_config << EOF
+%s/^PasswordAuthentication.*/PasswordAuthentication no
+%s/^ChallengeResponseAuthentication.*/ChallengeResponseAuthentication no
+wq
+EOF
+
 # Install node 18.x
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 apt-get install -y nodejs
