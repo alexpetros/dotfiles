@@ -83,7 +83,8 @@ nnoremap ,d :b#<bar>bd#<CR>
 nnoremap <C-b> :make!<CR>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
-"""" faster window keys
+" faster window keys. note that these won't work if you're inside tmux
+" If you're managing withing tmux, just use C-W,W and don't open too many vim splits
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
