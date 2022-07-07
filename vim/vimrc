@@ -11,7 +11,7 @@ set shell=/bin/zsh
 autocmd BufWritePre * :%s/\s\+$//e
 
 """" tab settings
-set noexpandtab tabstop=2 softtabstop=2 shiftwidth=0 textwidth=100
+set noexpandtab tabstop=2 softtabstop=2 shiftwidth=2 textwidth=100
 
 """" syntax-specific settings
 set colorcolumn=+1
