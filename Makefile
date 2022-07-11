@@ -5,5 +5,5 @@
 .PHONY: all clean
 
 all:
-	$(CURDIR)/scripts/make-symlinks.sh
-	
+	$(CURDIR)/make-symlinks.sh
+
