@@ -8,8 +8,10 @@ usermod -aG sudo $USERNAME
 rsync --archive --chown=$USERNAME:$USERNAME ~/.ssh /home/$USERNAME
 
 # Install basic packages
+add-apt-repository ppa:certbot/certbot
 apt-get -y update
-apt-get -y install nginx make fzf
+apt-get -y upgrade
+apt-get -y install nginx make fzf python-certbot-nginx
 
 # Verify that nginx is serving on port 80
 systemctl status nginx
