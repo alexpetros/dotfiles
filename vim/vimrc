@@ -116,6 +116,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'christoomey/vim-tmux-navigator'
 
 """ Language-specific
 Plug 'mattn/emmet-vim'
