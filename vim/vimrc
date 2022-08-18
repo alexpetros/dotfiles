@@ -2,7 +2,10 @@ set confirm
 set hidden
 set autoread
 set autowrite
+set wrap
+set linebreak
 set history=1000
+set spelllang=en_us
 
 """ shell settings
 set shell=/bin/zsh
@@ -11,19 +14,19 @@ set shell=/bin/zsh
 autocmd BufWritePre * :%s/\s\+$//e
 
 """" tab settings
-set noexpandtab tabstop=2 softtabstop=2 shiftwidth=2 textwidth=100
+set noexpandtab tabstop=2 softtabstop=2 shiftwidth=2
 
 """" syntax-specific settings
 set colorcolumn=+1
-autocmd FileType python setlocal expandtab softtabstop=4 shiftwidth=4 textwidth=80
+autocmd FileType python setlocal expandtab softtabstop=4 shiftwidth=4
 autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 smarttab
+autocmd FileType html,markdown,text setlocal spell
 
 set foldmethod=syntax "syntax highlighting items specify folds
 set foldcolumn=1 "defines 1 col at window left, to indicate folding
 set foldlevelstart=99 "start file with all folds opened
 
 let g:javaScript_fold=1 "activate folding by JS syntax
-let g:html_indent_script1 = "zero"
 
 
 """"" user interface settings
@@ -192,3 +195,5 @@ imap <C-f> <ESC><C-f>
 " let g:airline_powerline_fonts=1
 " let g:airline#extensions#tabline#enabled=1
 
+let g:html_indent_style1 = "zero"
+let g:html_indent_script1 = "zero"
