@@ -14,12 +14,11 @@ set shell=/bin/zsh
 autocmd BufWritePre * :%s/\s\+$//e
 
 """" tab settings
-set noexpandtab tabstop=2 softtabstop=2 shiftwidth=2
+set expandtab shiftwidth=2 tabstop=2 softtabstop=2 smarttab
 
 """" syntax-specific settings
 set colorcolumn=+1
 autocmd FileType python setlocal expandtab softtabstop=4 shiftwidth=4
-autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 smarttab
 autocmd FileType html,markdown,text setlocal spell
 
 set foldmethod=syntax "syntax highlighting items specify folds
