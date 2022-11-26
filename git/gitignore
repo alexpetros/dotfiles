@@ -1,0 +1,17 @@
+# Build files
+*.log
+
+# Editor files
+*.swp
+*.idea
+.vscode/
+
+# Env files
+*.env
+
+# OSX Files
+.DS_Store
+.Trasher
+
+# Secret scripts
+.bin/
