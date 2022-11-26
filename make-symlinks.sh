@@ -6,7 +6,7 @@
 
 # Variables
 repo_dir=$(pwd)
-ln_flags='-sv'
+ln_flags='-svh'
 
 # Crate symlinks (will fail if file exists)
 ln $ln_flags $repo_dir/vim/vimrc ~/.vimrc
@@ -20,8 +20,19 @@ ln $ln_flags $repo_dir/latex/latexmkrc ~/.latexmkrc
 touch $HOME/.zshrc.local
 
 # Install vim-plug
-curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
+if [[ -f "$HOME/.vim/autoload/plug.vim" ]]; then
+  echo "vim-plug already installed"
+else
+  curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+# Install tpm
+if [[ -d "$HOME/.tmux/plugins/tpm" ]]; then
+  echo "tmux plugin manager already installed"
+else
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 echo 'make-symlinks executed succesfully'
 exit 0
