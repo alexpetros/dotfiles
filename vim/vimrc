@@ -10,23 +10,25 @@ set spelllang=en_us
 """ shell settings
 set shell=/bin/zsh
 
-"""" remove trailing whitespace for all files
+""" remove trailing whitespace for all files
 autocmd BufWritePre * :%s/\s\+$//e
 
-"""" tab settings
+""" tab settings
 set textwidth=100
 set expandtab shiftwidth=2 tabstop=2 softtabstop=2 smarttab
 
-"""" syntax-specific settings
+""" syntax-specific settings
 set colorcolumn=+1
 autocmd FileType python,java setlocal expandtab softtabstop=4 shiftwidth=4
 autocmd FileType html,markdown,text setlocal spell
+autocmd FileType scheme setlocal lisp
 
 set foldmethod=syntax "syntax highlighting items specify folds
 set foldcolumn=1 "defines 1 col at window left, to indicate folding
 set foldlevelstart=99 "start file with all folds opened
 
 let g:javaScript_fold=1 "activate folding by JS syntax
+set lispwords+=for-each,#%module-begin,define-macro,define-macro-cases,module,
 
 
 """"" user interface settings
@@ -40,19 +42,19 @@ set lazyredraw
 " paste mode lets you paste without indents
 set pastetoggle=<F3>
 
-"""" search settings
+""" search settings
 set path+=**
 set wildmenu
 set wildignore+=**/build/**
 set wildignore+=**/node_modules/**
 
-"""" colors
+""" colors
 syntax on
 set re=0
 set t_Co=256
 set background=dark
 
-"""" disable error bells
+""" disable error bells
 set noerrorbells
 set novisualbell
 set t_vb=
@@ -62,21 +64,21 @@ set tm=500
 command PrintLink echo printf("%s /%s#L%d", trim(system('gh-link')), @%, line("."))
 command CodeLink redir @* | PrintLink
 
-"""" make programs
+""" make programs
 autocmd FileType python set makeprg=python3\ %
 autocmd FileType scala set makeprg=scala\ %
-autocmd FileType scheme set makeprg=guile\ %
+autocmd FileType scheme set makeprg=racket\ %
 autocmd FileType rust set makeprg=cargo\ test
 
-"""" file browser settings
+""" file browser settings
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 let g:netrw_list_hide=',\(^\|\s\s\)\zs\.\S+'
 
-"""" autocomplete
+""" autocomplete
 inoremap <Leader>c </<C-x><C-o>
 
-"""" keyboard remaps
+""" keyboard remaps
 :let mapleader = ","
 inoremap jj <ESC>
 inoremap <Esc><BS> <C-w>
@@ -94,13 +96,13 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-"""" search settings
+""" search settings
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
 
-"""" plugin settings
+""" plugin settings
 " install vim-plug if not present
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -124,6 +126,8 @@ Plug 'christoomey/vim-tmux-navigator'
 
 """ Language-specific
 Plug 'mattn/emmet-vim'
+
+autocmd Filetype clojure,scheme let b:AutoPairs = {'(':')', '[':']', '{':'}', '"':'"'}
 
 " Use <Ctrl-C> <Ctrl-C> to send the selection to the terminal
 Plug 'jpalardy/vim-slime', {'branch': 'main'}
@@ -178,7 +182,7 @@ autocmd FileType html,css EmmetInstall
 let g:dracula_italic = 0
 color dracula
 
-"""" FZF search commands
+""" FZF search commands
 nnoremap <C-p> :GFiles --cached --others --exclude-standard<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>

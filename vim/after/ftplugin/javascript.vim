@@ -1,4 +1,4 @@
-set makeprg=node\ --test\ %
+set makeprg=npm\ test\ %
 command Format write | silent exec "!prettier --no-semi --single-quote -w % >/dev/null" | execute ':redraw!'
 
 set foldmethod=syntax "syntax highlighting items specify folds
