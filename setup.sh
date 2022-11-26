@@ -1,5 +1,4 @@
 #!/bin/bash
-# create-symlinks.sh
 #
 # Create symlinks from expeted dotfile locations to this repo
 # This should only be run by the Makefile, from the repository root
@@ -33,6 +32,11 @@ if [[ -d "$HOME/.tmux/plugins/tpm" ]]; then
 else
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+# Basic git settings
+touch ~/.gitignore
+git config --global core.excludesfile ~/.gitignore
+git config --global core.pager 'less -x4'
 
 echo 'make-symlinks executed succesfully'
 exit 0
