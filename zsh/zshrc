@@ -10,7 +10,7 @@ autoload -U colors && colors
 # prompts
 export PROMPT="
  <%?> [%~] $program %{$fg[default]%}
- %{$fg[magenta]%}[%*] %{$fg[cyan]%}%n@%M %{$fg[default]%}$ "
+ %{$fg[magenta]%}[%*] %{$fg[cyan]%}%n@%m %{$fg[default]%}$ "
  export LESS="-x4R"
 
 # ls preferences
