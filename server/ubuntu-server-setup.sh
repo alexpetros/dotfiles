@@ -1,17 +1,19 @@
 set -ev
 
-export USERNAME="awp"
+export SERVER_USER="node"
+export PERSONAL_USER="awp"
 
-# Create non-root user with the authorized ssh keys; note that this is a passwordless account
-useradd -m -s /bin/bash $USERNAME
-usermod -aG sudo $USERNAME
-rsync --archive --chown=$USERNAME:$USERNAME ~/.ssh /home/$USERNAME
+# Create server user; note that this is a passwordless account
+useradd -m -s /bin/bash $SERVER_USER
 
 # Install basic packages
-add-apt-repository ppa:certbot/certbot
 apt-get -y update
 apt-get -y upgrade
-apt-get -y install nginx make fzf python-certbot-nginx
+apt-get -y install nginx make fzf
+
+# Install certbot
+snap install --classic certbot
+ln -s /snap/bin/certbot /usr/bin/certbot
 
 # Verify that nginx is serving on port 80
 systemctl status nginx
@@ -26,7 +28,6 @@ ufw status
 # Disable password authentication on ssh (yes I'm using ed)
 ed /etc/ssh/sshd_config << EOF
 %s/^PasswordAuthentication.*/PasswordAuthentication no
-%s/^ChallengeResponseAuthentication.*/ChallengeResponseAuthentication no
 wq
 EOF
 
@@ -35,8 +36,13 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 apt-get install -y nodejs
 npm install -g pm2
 
-# Login to $USERNAME and install dotfiles
-sudo -i -u $USERNAME bash << EOF
+# Create non-root user with the authorized ssh keys; note that this is a passwordless account
+useradd -m -s /bin/bash $PERSONAL_USER
+usermod -aG sudo $PERSONAL_USER
+rsync --archive --chown=$PERSONAL_USER:$PERSONAL_USER ~/.ssh /home/$PERSONAL_USER
+
+# Login to $PERSONAL_USER and install dotfiles
+sudo -i -u $PERSONAL_USER bash << EOF
 git clone https://github.com/alexpetros/dotfiles
 cd dotfiles && make
 EOF
