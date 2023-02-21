@@ -11,7 +11,7 @@ useradd -m -s /bin/bash $SERVER_USER
 # Install basic packages
 apt-get -y update
 apt-get -y upgrade
-apt-get -y install nginx make fzf
+apt-get -y install nginx make fzf sqlite3
 
 # Install certbot
 snap install --classic certbot
