@@ -1,5 +1,6 @@
 set -ev
 
+export DEBIAN_FRONTEND="noninteractive"
 export SERVER_USER="node"
 export PERSONAL_USER="awp"
 
