@@ -1,5 +1,6 @@
 set -ev
 
+export NODE_CONF_URL="https://raw.githubusercontent.com/alexpetros/dotfiles/main/server/node.conf"
 export DEBIAN_FRONTEND="noninteractive"
 export SERVER_USER="node"
 export PERSONAL_USER="awp"
@@ -19,6 +20,8 @@ ln -s /snap/bin/certbot /usr/bin/certbot
 # Verify that nginx is serving on port 80
 systemctl status nginx --no-pager --full
 curl localhost:80 2>/dev/null | grep nginx > /dev/null
+curl "$NODE_CONF_URL" > /etc/nginx/sites-available/node
+systemctl restart nginx
 
 # Setup firewall to only allow nginx and ssh access
 ufw allow 'OpenSSH'
