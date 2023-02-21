@@ -11,8 +11,16 @@ The installation script is "safe," so if you have an existing config, it will si
 Run `make alex` for additional configurations if you're trying to setup a development machine as me.
 Right now that just means extra git config info.
 
+## Ubuntu setup
+
+I use the ubuntu script to setup new node server droplets by logging in as root and running the
+following command:
+
+```
+curl https://raw.githubusercontent.com/alexpetros/dotfiles/main/server/ubuntu-server-setup.sh | sh
+```
+
 ## TODO
-* Add global gitignore
 * Prettify Vim config
 * Breakdown ZSH into components
     * Designated slot for local configs
