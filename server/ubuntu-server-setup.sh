@@ -17,7 +17,7 @@ snap install --classic certbot
 ln -s /snap/bin/certbot /usr/bin/certbot
 
 # Verify that nginx is serving on port 80
-systemctl status nginx
+systemctl status nginx --no-pager --full
 curl localhost:80 2>/dev/null | grep nginx > /dev/null
 
 # Setup firewall to only allow nginx and ssh access
