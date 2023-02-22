@@ -1,3 +1,4 @@
+#!/bin/bash
 set -ev
 
 export NODE_CONF_URL="https://raw.githubusercontent.com/alexpetros/dotfiles/main/server/node.conf"
@@ -17,11 +18,15 @@ apt-get -y install nginx make fzf sqlite3
 snap install --classic certbot
 ln -s /snap/bin/certbot /usr/bin/certbot
 
+# Download basic redirect conf and link it to sites-enabled
+curl "$NODE_CONF_URL" > /etc/nginx/sites-available/node
+ln -s /etc/nginx/sites-available/node node
+rm /etc/nginx/sites-enabled/default
+systemctl restart nginx
+
 # Verify that nginx is serving on port 80
 systemctl status nginx --no-pager --full
 curl localhost:80 2>/dev/null | grep nginx > /dev/null
-curl "$NODE_CONF_URL" > /etc/nginx/sites-available/node
-systemctl restart nginx
 
 # Setup firewall to only allow nginx and ssh access
 ufw allow 'OpenSSH'
@@ -51,3 +56,5 @@ git clone https://github.com/alexpetros/dotfiles
 cd dotfiles && make
 EOF
 
+echo "You're done!"
+echo "Don't forget you need to run: certbot --nginx -d example.com -d www.example.com"
