@@ -78,16 +78,19 @@ let g:netrw_list_hide=',\(^\|\s\s\)\zs\.\S+'
 """ autocomplete
 inoremap <Leader>c </<C-x><C-o>
 
-""" keyboard remaps
-:let mapleader = ","
+" keyboard remaps
+nnoremap - dd
+nnoremap ,d :b#<bar>bd#<CR>
+nnoremap <C-b> :make!<CR>
+
+cnoremap <Esc><BS> <C-w>
 inoremap jj <ESC>
 inoremap <Esc><BS> <C-w>
 inoremap <C-CR> <Esc>o
-cnoremap <Esc><BS> <C-w>
+
+let mapleader = ","
 nnoremap <Leader>= gg=G<C-o><C-o>
 nnoremap <Leader><space> :noh<cr>
-nnoremap ,d :b#<bar>bd#<CR>
-nnoremap <C-b> :make!<CR>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " faster window keys
