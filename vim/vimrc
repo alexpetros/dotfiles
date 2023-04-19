@@ -32,6 +32,7 @@ set wrap
 set linebreak
 set history=1000
 set spelllang=en_us
+set formatoptions=tcro
 
 """ shell settings
 set shell=/bin/zsh

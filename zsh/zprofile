@@ -1,5 +1,6 @@
-# Prepend HOME bin to path
+# Prepend some things to the path
 path=("$HOME/bin" $path)
+path=("/opt/homebrew/bin/vim" $path)
 
 # Append installation to path
 path+="/usr/local/Cellar/"
