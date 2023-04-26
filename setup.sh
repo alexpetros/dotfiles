@@ -38,6 +38,9 @@ fi
 touch ~/.gitignore
 git config --global core.excludesfile ~/.gitignore
 git config --global core.pager 'less -x4'
+git config --global pull.rebase true
+git config --global advice.skippedCherryPicks false
+git config --global diff.colorMoved zebra
 
 echo 'make-symlinks executed succesfully'
 exit 0
