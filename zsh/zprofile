@@ -1,4 +1,5 @@
 # Prepend some things to the path
+path=("/opt/homebrew/opt/sqlite/bin" $path)
 path=("$HOME/bin" $path)
 path=("/opt/homebrew/bin/vim" $path)
 
@@ -7,6 +8,7 @@ path+="/usr/local/Cellar/"
 path+="$HOME/.npm-packages/bin"
 path+="/Applications/Sublime Text.app/Contents/SharedSupport/bin"
 path+="$HOME/.cargo/bin"
+path+="$HOME/.pyenv/shims"
 
 # commands that should be available to non-interactive users
 alias gh-link="git remote -v | grep fetch | awk '{print \$2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//' | sed 's/\.git/\/tree\/main/'"
