@@ -24,6 +24,7 @@ alias pr-pull='git fetch && git checkout'
 
 # other aliases
 alias sl='sqlite3'
+alias ez='vim ~/.zshrc'
 
 # beep when done!
 alias beep="echo -n '\a'"

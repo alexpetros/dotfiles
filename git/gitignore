@@ -5,6 +5,7 @@
 *.swp
 *.idea
 .vscode/
+tags
 
 # Env files
 *.env
