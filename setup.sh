@@ -5,7 +5,7 @@
 
 # Variables
 repo_dir=$(pwd)
-ln_flags='-svh'
+ln_flags='-svn'
 
 # Crate symlinks (will fail if file exists)
 ln $ln_flags $repo_dir/git/gitignore ~/.gitignore
