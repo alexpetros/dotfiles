@@ -23,6 +23,8 @@ alias pr='gh pr create --web'
 alias pr-pull='git fetch && git checkout'
 
 # other aliases
+alias vi='nvim'
+alias vim='nvim'
 alias sl='sqlite3'
 alias ez='vim ~/.zshrc'
 
