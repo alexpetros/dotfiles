@@ -145,6 +145,13 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'lepture/vim-jinja'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-vsnip'
 
 autocmd BufNewFile,BufRead *.njk set ft=jinja
 autocmd Filetype clojure,scheme let b:AutoPairs = {'(':')', '[':']', '{':'}', '"':'"'}
@@ -155,46 +162,12 @@ let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 let g:slime_bracketed_paste = 1
 
-
-"""" LSP installation
-"" run :CocInstall coc-tsserver coc-json coc-eslint coc-rust-analyzer
-"" note that you will need to set the JDK_HOME env variable for java
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-"" GoTo code navigation.
-nnoremap <silent> gd <Plug>(coc-definition)
-nnoremap <silent> gy <Plug>(coc-type-definition)
-nnoremap <silent> gi <Plug>(coc-implementation)
-nnoremap <silent> gr <Plug>(coc-references)
-nnoremap <silent> gth :CocCommand document.toggleInlayHint<cr>
-
-"" Use `[g` and `]g` to navigate diagnostics
-nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
-nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
-
-"" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" " Formatting selected code.
-nmap <leader>a <Plug>(coc-codeaction)
-nmap <leader>l :call CocAction('format')<CR>
-
-" " Use K to show documentation in preview window
-"nnoremap <silent> K :call <SID>show_documentation()<CR>
-"function! s:show_documentation()
-"  if (index(['vim','help'], &filetype) >= 0)
-"    execute 'h '.expand('<cword>')
-"  else
-"    call CocAction('doHover')
-"  endif
-"endfunction
-
 " " initialize plugin system
 call plug#end()
 filetype plugin indent on
 
 """" Emmet settings
-"let g:user_emmet_leader_key='<C-Y>'
+let g:user_emmet_leader_key='<C-e>'
 let g:user_emmet_install_global = 0
 autocmd FileType html,jinja EmmetInstall
 
