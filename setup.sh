@@ -6,13 +6,14 @@
 # Variables
 repo_dir=$(pwd)
 ln_flags='-svn'
+mkdir -p ~/.config/nvim
 
 # Crate symlinks (will fail if file exists)
 ln $ln_flags $repo_dir/git/gitignore ~/.gitignore
 ln $ln_flags $repo_dir/latex/latexmkrc ~/.latexmkrc
 ln $ln_flags $repo_dir/tmux/tmux.conf ~/.tmux.conf
-ln $ln_flags $repo_dir/vim/after ~/.vim/after
-ln $ln_flags $repo_dir/vim/vimrc ~/.vimrc
+ln $ln_flags $repo_dir/nvim/init.lua ~/.config/nvim/init.lua
+ln $ln_flags $repo_dir/nvim/vimrc ~/.config/nvim/vimrc
 ln $ln_flags $repo_dir/zsh/zprofile ~/.zprofile
 ln $ln_flags $repo_dir/zsh/zshrc ~/.zshrc
 
