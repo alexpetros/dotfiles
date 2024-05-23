@@ -14,7 +14,8 @@ ln $ln_flags $repo_dir/latex/latexmkrc ~/.latexmkrc
 ln $ln_flags $repo_dir/tmux/tmux.conf ~/.tmux.conf
 ln $ln_flags $repo_dir/nvim/init.lua ~/.config/nvim/init.lua
 ln $ln_flags $repo_dir/nvim/vimrc ~/.config/nvim/vimrc
-ln $ln_flags $repo_dir/zsh/zprofile ~/.zprofile
+ln $ln_flags $repo_dir/nvim/after ~/.config/nvim/after
+ln $ln_flags $repo_dir/zsh/zshenv ~/.zshenv
 ln $ln_flags $repo_dir/zsh/zshrc ~/.zshrc
 
 # Create empty local zshrc if one doesn't exist

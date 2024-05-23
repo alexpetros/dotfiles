@@ -3,16 +3,18 @@ path=("/opt/homebrew/opt/sqlite/bin" $path)
 path=("$HOME/bin" $path)
 path=("/opt/homebrew/bin/vim" $path)
 
-# Append installation to path
-path+="/usr/local/Cellar/"
+# Append installations dirs to path
+path+="/usr/local/Cellar"
+path+="/usr/lib/rustup/bin"
 path+="$HOME/.npm-packages/bin"
-path+="/Applications/Sublime Text.app/Contents/SharedSupport/bin"
-path+="/Applications/Racket v8.11.1/bin"
+# path+="/Applications/Sublime Text.app/Contents/SharedSupport/bin"
+# path+="/Applications/Racket v8.11.1/bin"
 path+="$HOME/.cargo/bin"
 path+="$HOME/.pyenv/shims"
+path+="$HOME/.fly/bin"
 
 # commands that should be available to non-interactive users
 alias gh-link="git remote -v | grep fetch | awk '{print \$2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//' | sed 's/\.git/\/tree\/main/'"
 
 # Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
