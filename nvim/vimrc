@@ -45,7 +45,9 @@ set shell=/bin/zsh
 autocmd BufWritePre * :%s/\s\+$//e
 
 "" unfamiliar file extensions"
-" autocmd BufRead,BufNewFile *njk set filetype jinja.html
+autocmd BufNewFile,BufRead *.njk,*.html set ft=html
+autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufFilePre,BufRead *.md set syntax=markdown
 
 """" tab settings
 set expandtab shiftwidth=2 tabstop=2 softtabstop=2 smarttab
@@ -58,7 +60,6 @@ autocmd FileType html,markdown,text setlocal spell
 autocmd FileType scheme setlocal lisp
 autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
 autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-autocmd FileType html setlocal nowrap
 
 set foldmethod=syntax "syntax highlighting items specify folds
 set foldcolumn=1 "defines 1 col at window left, to indicate folding
@@ -87,7 +88,7 @@ set wildignore+=**/build/**
 set wildignore+=**/node_modules/**
 
 """" colors
-syntax off "since I'm using tree-sitter now
+syntax on
 set re=0
 set t_Co=256
 set background=dark
@@ -144,7 +145,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mattn/emmet-vim'
 Plug 'leafgarland/typescript-vim'
-Plug 'lepture/vim-jinja'
+Plug 'https://gitlab.com/HiPhish/jinja.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -155,7 +156,7 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
 
-autocmd BufNewFile,BufRead *.njk set ft=jinja
+autocmd BufRead,BufNewFile *.html  call jinja#AdjustFiletype()
 autocmd Filetype clojure,scheme let b:AutoPairs = {'(':')', '[':']', '{':'}', '"':'"'}
 
 "" Use <Ctrl-C> <Ctrl-C> to send the selection to the terminal
@@ -171,7 +172,7 @@ filetype plugin indent on
 """" Emmet settings
 let g:user_emmet_leader_key='<C-e>'
 let g:user_emmet_install_global = 0
-autocmd FileType html,jinja EmmetInstall
+autocmd FileType html,jinja,jinja.html,php,markdown,javascript EmmetInstall
 
 """" Theme settings
 "" to match background, set terminal to RGB(48,48,48)

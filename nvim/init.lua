@@ -90,10 +90,10 @@ cmp.setup({
 })
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "vim", "vimdoc", "query", "rust", "javascript", "markdown" },
+  ensure_installed = { "vim", "vimdoc", "query", "rust", "javascript", "css", "html" },
   highlight = {
     enable = true,
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = true,
   },
   incremental_selection = {
     enable = true,
