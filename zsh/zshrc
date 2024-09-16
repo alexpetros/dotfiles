@@ -20,6 +20,9 @@ alias ls='ls -Fhp'
 export CLICOLOR=1
 export LSCOLORS='GxFxCxDxBxegedabagaced'
 
+# golang dir
+export GOPATH="$HOME/bin/go"
+
 # github aliases
 alias pr='gh pr create --web'
 alias pr-pull='git fetch && git checkout'
