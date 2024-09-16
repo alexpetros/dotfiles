@@ -22,6 +22,10 @@ lspconfig.rust_analyzer.setup {
 
 lspconfig.tsserver.setup {}
 
+lspconfig.gopls.setup({})
+
+lspconfig.templ.setup({})
+
 vim.diagnostic.config({ virtual_text = false })
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -90,7 +94,19 @@ cmp.setup({
 })
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "vim", "vimdoc", "query", "rust", "javascript", "css", "html" },
+  ensure_installed = {
+    "vim",
+    "vimdoc",
+    "query",
+    "rust",
+    "javascript",
+    "typescript",
+    "markdown",
+    "css",
+    "html",
+    "go",
+    "templ",
+  },
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = true,

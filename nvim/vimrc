@@ -44,10 +44,14 @@ set shell=/bin/zsh
 """" remove trailing whitespace for all files
 autocmd BufWritePre * :%s/\s\+$//e
 
-"" unfamiliar file extensions"
+"" unfamiliar file extensions
 autocmd BufNewFile,BufRead *.njk,*.html set ft=html
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
-autocmd BufNewFile,BufFilePre,BufRead *.md set syntax=markdown
+autocmd BufNewFile,BufFilePre,BufRead *.templ set filetype=templ
+" autocmd BufNewFile,BufFilePre,BufRead *.md set syntax=markdown
+
+"" unfamiliar comment types extensions
+autocmd FileType templ setlocal commentstring=//\ %s
 
 """" tab settings
 set expandtab shiftwidth=2 tabstop=2 softtabstop=2 smarttab
@@ -55,6 +59,7 @@ set expandtab shiftwidth=2 tabstop=2 softtabstop=2 smarttab
 """" syntax-specific settings
 set textwidth=100
 set colorcolumn=+1
+autocmd FileType go setlocal noexpandtab softtabstop=0
 autocmd FileType python,java setlocal expandtab softtabstop=4 shiftwidth=4
 autocmd FileType html,markdown,text setlocal spell
 autocmd FileType scheme setlocal lisp
@@ -144,7 +149,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mattn/emmet-vim'
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 Plug 'https://gitlab.com/HiPhish/jinja.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -156,7 +161,7 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
 
-autocmd BufRead,BufNewFile *.html  call jinja#AdjustFiletype()
+autocmd BufRead,BufNewFile *.html,*.njk  call jinja#AdjustFiletype()
 autocmd Filetype clojure,scheme let b:AutoPairs = {'(':')', '[':']', '{':'}', '"':'"'}
 
 "" Use <Ctrl-C> <Ctrl-C> to send the selection to the terminal
@@ -170,9 +175,9 @@ call plug#end()
 filetype plugin indent on
 
 """" Emmet settings
-let g:user_emmet_leader_key='<C-e>'
+let g:user_emmet_leader_key='<C-t>'
 let g:user_emmet_install_global = 0
-autocmd FileType html,jinja,jinja.html,php,markdown,javascript EmmetInstall
+autocmd FileType html,jinja,jinja.html,php,markdown,javascript,templ EmmetInstall
 
 """" Theme settings
 "" to match background, set terminal to RGB(48,48,48)
