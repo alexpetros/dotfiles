@@ -16,3 +16,8 @@ alex:
 server:
 	$(CURDIR)/setup-server.sh
 
+.PHONY: clean
+clean:
+	$(CURDIR)/clean.sh
+
+
