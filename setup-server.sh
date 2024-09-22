@@ -11,7 +11,7 @@ mkdir -p ~/.config/nvim
 # Crate symlinks (will fail if file exists)
 ln $ln_flags $repo_dir/git/gitignore ~/.gitignore
 ln $ln_flags $repo_dir/tmux/tmux.conf ~/.tmux.conf
-ln $ln_flags $repo_dir/vim/lite-vimrc.vim ~/.config/vim/vimrc
+ln $ln_flags $repo_dir/vim/lite-vimrc.vim ~/.vimrc
 ln $ln_flags $repo_dir/zsh/zshenv ~/.zshenv
 ln $ln_flags $repo_dir/zsh/zshrc ~/.zshrc
 
