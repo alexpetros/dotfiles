@@ -12,3 +12,7 @@ all:
 alex:
 	$(CURDIR)/setup-identity.sh
 
+.PHONY: server
+server:
+	$(CURDIR)/setup-server.sh
+

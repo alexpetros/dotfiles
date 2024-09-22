@@ -53,7 +53,7 @@ rsync --archive --chown=$PERSONAL_USER:$PERSONAL_USER ~/.ssh /home/$PERSONAL_USE
 # Login to $PERSONAL_USER and install dotfiles
 sudo -i -u $PERSONAL_USER bash << EOF
 git clone https://github.com/alexpetros/dotfiles
-cd dotfiles && make
+cd dotfiles && make server
 EOF
 
 echo "You're done!"
