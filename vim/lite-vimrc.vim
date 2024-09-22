@@ -141,7 +141,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'mattn/emmet-vim'
 Plug 'lepture/vim-jinja'
 
@@ -153,7 +152,7 @@ call plug#end()
 filetype plugin indent on
 
 """" Emmet settings
-"let g:user_emmet_leader_key='<C-Y>'
+let g:user_emmet_leader_key='<C-T>'
 let g:user_emmet_install_global = 0
 autocmd FileType html,jinja EmmetInstall
 
