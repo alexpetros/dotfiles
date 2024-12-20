@@ -57,6 +57,11 @@ source "$HOME/.zshrc.local"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 alias vfi='vim "$(rg . | fzf | cut -d ":" -f 1)"'
+
+# Prepend some things to the path
+path=("/opt/homebrew/opt/sqlite/bin" $path)
+path=("$HOME/bin" $path)
+path=("/opt/homebrew/bin" $path)

@@ -1,8 +1,3 @@
-# Prepend some things to the path
-path=("/opt/homebrew/opt/sqlite/bin" $path)
-path=("$HOME/bin" $path)
-path=("/opt/homebrew/bin/vim" $path)
-
 # Append installations dirs to path
 path+="/usr/local/Cellar"
 path+="$HOME/bin/go/bin"
@@ -20,5 +15,5 @@ path+="$HOME/code/hypermedia/chrome/depot_tools"
 alias gh-link="git remote -v | grep fetch | awk '{print \$2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//' | sed 's/\.git/\/tree\/main/'"
 
 # Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"
