@@ -5,15 +5,14 @@ nnoremap L $
 nnoremap ,d :b#<bar>bd#<CR>
 nnoremap <C-b> :make!<CR>
 
-cnoremap <Esc><BS> <C-w>
+cnoremap <ESC><BS> <C-W>
 
-inoremap jk <ESC>
 inoremap <Esc><BS> <C-w>
-inoremap <C-u> <Esc>gUiwie
+inoremap jk <ESC>
 
 let mapleader = ","
 nnoremap <Leader>= gg=G<C-o><C-o>
-nnoremap <Leader>ev :split $MYVIMRC<cr>
+nnoremap <Leader>ev :e $MYVIMRC<cr>
 nnoremap <Leader>sv :source $MYVIMRC<cr>
 nnoremap <Leader><space> :noh<cr>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
@@ -26,6 +25,10 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
+
+"" faster quickfix
+nnoremap <M-j> :cn
+nnoremap <M-k> :cb
 
 set confirm
 set hidden
@@ -54,17 +57,19 @@ autocmd BufNewFile,BufFilePre,BufRead *.templ set filetype=templ
 autocmd FileType templ setlocal commentstring=//\ %s
 
 """" tab settings
-set expandtab shiftwidth=2 tabstop=2 softtabstop=2 smarttab
+set expandtab tabstop=8 shiftwidth=2 softtabstop=2 smarttab
 
 """" syntax-specific settings
 set textwidth=100
 set colorcolumn=+1
-autocmd FileType go setlocal noexpandtab softtabstop=0
-autocmd FileType python,java setlocal expandtab softtabstop=4 shiftwidth=4
+autocmd FileType python,java,sql setlocal softtabstop=4 shiftwidth=4
 autocmd FileType html,markdown,text setlocal spell
 autocmd FileType scheme setlocal lisp
+autocmd FileType gitcommit setlocal textwidth=72
 autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
 autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+autocmd FileType go setlocal noexpandtab softtabstop=0
+autocmd FileType nginx setlocal softtabstop=4 shiftwidth=4
 
 set foldmethod=syntax "syntax highlighting items specify folds
 set foldcolumn=1 "defines 1 col at window left, to indicate folding
@@ -112,7 +117,7 @@ command CodeLink redir @* | PrintLink
 autocmd FileType python set makeprg=python3\ %
 autocmd FileType scala set makeprg=scala\ %
 autocmd FileType scheme set makeprg=racket\ %
-autocmd FileType rust set makeprg=cargo\ test
+autocmd FileType rust set makeprg=cargo\ check
 
 """" file browser settings
 let g:netrw_banner=0
@@ -144,12 +149,17 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
+" Fuzzy finding
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mattn/emmet-vim'
-" Plug 'leafgarland/typescript-vim'
 Plug 'https://gitlab.com/HiPhish/jinja.vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -160,19 +170,19 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
+Plug 'jpalardy/vim-slime', {'branch': 'main'}
+
+" " initialize plugin system
+call plug#end()
+filetype plugin indent on
 
 autocmd BufRead,BufNewFile *.html,*.njk  call jinja#AdjustFiletype()
 autocmd Filetype clojure,scheme let b:AutoPairs = {'(':')', '[':']', '{':'}', '"':'"'}
 
 "" Use <Ctrl-C> <Ctrl-C> to send the selection to the terminal
-Plug 'jpalardy/vim-slime', {'branch': 'main'}
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
 let g:slime_bracketed_paste = 1
-
-" " initialize plugin system
-call plug#end()
-filetype plugin indent on
 
 """" Emmet settings
 let g:user_emmet_leader_key='<C-t>'
@@ -184,15 +194,13 @@ autocmd FileType html,jinja,jinja.html,php,markdown,javascript,templ EmmetInstal
 let g:dracula_italic = 0
 color dracula
 
-"""" FZF search commands
-nnoremap <C-p> :GFiles --cached --others --exclude-standard<CR>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>h :History<CR>
-nnoremap <Leader>T :Tags<CR>
-
 "" requires OS installation of ripgrep
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
-nnoremap <C-f> :Rg<CR>
+
+"""" FZF search commands
+nnoremap <C-p> <CMD>:Telescope find_files<CR>
+nnoremap <C-f> <CMD>:Telescope live_grep<CR>
+
 " nnoremap <C-f> :grep<space>
 imap <C-f> <ESC><C-f>
 

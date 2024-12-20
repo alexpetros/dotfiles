@@ -10,12 +10,8 @@ local lspconfig = require('lspconfig')
 lspconfig.rust_analyzer.setup {
     settings = {
         ['rust-analyzer'] = {
-            check = {
-                command = "clippy";
-            },
-            diagnostics = {
-                enable = true;
-            }
+            check = { command = "clippy"; },
+            diagnostics = { enable = true; }
         }
     }
 }
@@ -157,3 +153,13 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+local actions = require("telescope.actions")
+require("telescope").setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<Esc>"] = actions.close,
+      },
+    },
+  }
+}
