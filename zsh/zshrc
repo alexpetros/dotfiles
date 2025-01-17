@@ -53,8 +53,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-source "$HOME/.zshrc.local"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -65,3 +63,6 @@ alias vfi='vim "$(rg . | fzf | cut -d ":" -f 1)"'
 path=("/opt/homebrew/opt/sqlite/bin" $path)
 path=("$HOME/bin" $path)
 path=("/opt/homebrew/bin" $path)
+
+source "$HOME/.zshrc.local"
+
