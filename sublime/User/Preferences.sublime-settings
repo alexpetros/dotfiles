@@ -82,4 +82,5 @@
 	"trim_trailing_white_space_on_save": true,
 	"vintage_start_in_command_mode": true,
 	"index_files": true,
+	"update_check": true,
 }

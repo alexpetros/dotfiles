@@ -200,7 +200,7 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 """" FZF search commands
 nnoremap <C-p> <CMD>:Telescope git_files<CR>
 nnoremap <C-f> <CMD>:Telescope live_grep<CR>
-nnoremap <C-g> <CMD>:Telescope lsp_document_symbols<CR>
+nnoremap <C-g> <CMD>:Telescope lsp_workspace_symbols<CR>
 nnoremap gr <CMD>:Telescope lsp_references<CR>
 
 " nnoremap <C-f> :grep<space>
