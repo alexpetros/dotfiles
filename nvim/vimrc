@@ -68,7 +68,7 @@ autocmd FileType scheme setlocal lisp
 autocmd FileType gitcommit setlocal textwidth=72
 autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
 autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-autocmd FileType go setlocal noexpandtab softtabstop=0
+autocmd FileType go setlocal noexpandtab softtabstop=0 shiftwidth=0
 autocmd FileType nginx setlocal softtabstop=4 shiftwidth=4
 
 set foldmethod=syntax "syntax highlighting items specify folds
