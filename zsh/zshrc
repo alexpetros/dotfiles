@@ -57,8 +57,15 @@ alias vfi='vim "$(rg . | fzf | cut -d ":" -f 1)"'
 
 # Prepend some things to the path
 path=("/opt/homebrew/opt/sqlite/bin" $path)
+path=("/opt/homebrew/opt/ruby/bin" $path)
 path=("$HOME/bin" $path)
 path=("/opt/homebrew/bin" $path)
+
+# More completions
+fpath=(/opt/homebrew/opt/just/share/zsh/site-functions $fpath)
+autoload -U compinit
+compinit
+
 
 # nvm after homebrew
 export NVM_DIR="$HOME/.nvm"

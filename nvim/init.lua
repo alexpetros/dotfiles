@@ -10,7 +10,10 @@ local lspconfig = require('lspconfig')
 lspconfig.rust_analyzer.setup {
     settings = {
         ['rust-analyzer'] = {
-            check = { command = "clippy" },
+            check = {
+              command = "clippy",
+              ignore = { "unused_imports" }
+            },
             diagnostics = { enable = true },
             imports = {
               granularity = { group = "item" }
@@ -19,7 +22,7 @@ lspconfig.rust_analyzer.setup {
     }
 }
 
-lspconfig.tsserver.setup {}
+lspconfig.ts_ls.setup({})
 
 lspconfig.gopls.setup({})
 

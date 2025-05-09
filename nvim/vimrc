@@ -91,7 +91,7 @@ set backspace=indent,eol,start
 set lazyredraw
 
 "" paste mode lets you paste without indents
-set pastetoggle=<F3>
+"set pastetoggle=<F3>
 
 """" search settings
 set path+=**
