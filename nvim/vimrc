@@ -28,6 +28,10 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
+"" faster buffer keys
+nnoremap <C-n> :bp<cr>
+nnoremap <C-m> :bn<cr>
+
 "" faster quickfix
 nnoremap <M-j> :cn
 nnoremap <M-k> :cb
