@@ -32,6 +32,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias sl='sqlite3'
 alias ez='vim ~/.zshrc'
+alias nb='newsboat'
 
 # beep when done!
 alias beep="echo -n '\a'"

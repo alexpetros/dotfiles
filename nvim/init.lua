@@ -159,14 +159,15 @@ require'nvim-treesitter.configs'.setup {
 }
 
 local actions = require("telescope.actions")
-require("telescope").setup{
+require("telescope").setup({
   defaults = {
+    path_display = { "smart" },
     mappings = {
       i = {
         ["<Esc>"] = actions.close,
       },
     },
   }
-}
+})
 
 require('telescope').load_extension('heading')

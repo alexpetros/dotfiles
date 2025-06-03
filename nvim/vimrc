@@ -80,6 +80,7 @@ autocmd FileType nginx setlocal softtabstop=4 shiftwidth=4
 set foldmethod=syntax "syntax highlighting items specify folds
 set foldcolumn=1 "defines 1 col at window left, to indicate folding
 set foldlevelstart=99 "start file with all folds opened
+let g:xml_syntax_folding=1
 
 ""activate folding by JS syntax
 ""let g:javaScript_fold=1
@@ -159,11 +160,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Fuzzy finding
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
-Plug 'crispgm/telescope-heading.nvim'
-
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mattn/emmet-vim'
@@ -178,6 +174,12 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'jpalardy/vim-slime', {'branch': 'main'}
+
+" Nvim installations
+" Eventually move this to lua, maybe
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+Plug 'crispgm/telescope-heading.nvim'
 
 " " initialize plugin system
 call plug#end()
@@ -205,7 +207,7 @@ color dracula
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
 """" FZF search commands
-nnoremap <C-p> <CMD>:Telescope git_files<CR>
+nnoremap <C-p> <CMD>:Telescope find_files<CR>
 nnoremap <C-f> <CMD>:Telescope live_grep<CR>
 nnoremap <C-g> <CMD>:Telescope lsp_workspace_symbols<CR>
 nnoremap gr <CMD>:Telescope lsp_references<CR>
