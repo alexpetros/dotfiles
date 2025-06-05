@@ -215,8 +215,3 @@ nnoremap gr <CMD>:Telescope lsp_references<CR>
 " nnoremap <C-f> :grep<space>
 imap <C-f> <ESC><C-f>
 
-"" airline settings
-set laststatus=2
-" let g:airline_powerline_fonts=1
-" let g:airline#extensions#tabline#enabled=1
-
