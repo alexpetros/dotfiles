@@ -102,7 +102,6 @@ require'nvim-treesitter.configs'.setup {
     "rust",
     "javascript",
     "typescript",
-    "markdown",
     "css",
     "html",
     "go",
