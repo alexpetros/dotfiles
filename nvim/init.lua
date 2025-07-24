@@ -160,7 +160,7 @@ require'nvim-treesitter.configs'.setup {
 local actions = require("telescope.actions")
 require("telescope").setup({
   defaults = {
-    path_display = { "smart" },
+    -- path_display = { "smart" },
     mappings = {
       i = {
         ["<Esc>"] = actions.close,
