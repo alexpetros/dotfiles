@@ -5,9 +5,12 @@ nnoremap L $
 nnoremap ,d :b#<bar>bd#<CR>
 nnoremap <C-b> :make!<CR>
 
-cnoremap <ESC><BS> <C-W>
+" Fast save
+nnoremap <D-s> :w<cr>
 
 inoremap <Esc><BS> <C-w>
+cnoremap <Esc><BS> <C-w>
+
 inoremap jk <ESC>
 
 let mapleader = ","
@@ -197,7 +200,7 @@ let g:slime_bracketed_paste = 1
 """" Emmet settings
 let g:user_emmet_leader_key='<C-t>'
 let g:user_emmet_install_global = 0
-autocmd FileType html,jinja,jinja.html,php,markdown,javascript,templ EmmetInstall
+autocmd FileType html,jinja,jinja.html,php,markdown,javascript,templ,rust EmmetInstall
 
 """" Theme settings
 "" to match background, set terminal to RGB(48,48,48)

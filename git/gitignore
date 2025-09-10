@@ -10,6 +10,9 @@ tags
 # Env files
 *.env
 
+# Debugging
+flamegraph.svg
+
 # OSX Files
 .DS_Store
 .Trasher
