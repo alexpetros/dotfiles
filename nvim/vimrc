@@ -12,6 +12,7 @@ inoremap <Esc><BS> <C-w>
 cnoremap <Esc><BS> <C-w>
 
 inoremap jk <ESC>
+inoremap <M-S--> —
 
 let mapleader = ","
 nnoremap <Leader>= gg=G<C-o><C-o>

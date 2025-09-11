@@ -7,9 +7,11 @@
 repo_dir=$(pwd)
 ln_flags='-svn'
 mkdir -p ~/.config/nvim
+mkdir -p ~/.config/ghostty
 
 # Crate symlinks (will fail if file exists)
 ln $ln_flags $repo_dir/git/gitignore ~/.gitignore
+ln $ln_flags $repo_dir/ghostty/config ~/.config/ghostty
 ln $ln_flags $repo_dir/latex/latexmkrc ~/.latexmkrc
 ln $ln_flags $repo_dir/tmux/tmux.conf ~/.tmux.conf
 ln $ln_flags $repo_dir/nvim/init.lua ~/.config/nvim/init.lua
