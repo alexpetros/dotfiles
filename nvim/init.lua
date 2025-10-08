@@ -6,8 +6,7 @@ vim.cmd("source ~/.config/nvim/vimrc")
 vim.opt.mouse=""
 
 -- Setup lsp
-local lspconfig = require('lspconfig')
-lspconfig.rust_analyzer.setup {
+vim.lsp.config('rust_analyzer', {
     settings = {
         ['rust-analyzer'] = {
             check = {
@@ -20,13 +19,12 @@ lspconfig.rust_analyzer.setup {
           }
         }
     }
-}
+})
+vim.lsp.enable('rust_analyzer')
 
-lspconfig.ts_ls.setup({})
+vim.lsp.enable('ts_ls')
 
-lspconfig.gopls.setup({})
-
-lspconfig.templ.setup({})
+-- vim.lsp.enable('gopls')
 
 vim.diagnostic.config({ virtual_text = false })
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
@@ -131,6 +129,8 @@ require'nvim-treesitter.configs'.setup {
         -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
+        ["ar"] = "@parameter.outer",
+        ["ir"] = "@parameter.inner",
         ["ac"] = "@class.outer",
         ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
         -- You can also use captures from other query groups like `locals.scm`
@@ -163,7 +163,7 @@ require("telescope").setup({
     -- path_display = { "smart" },
     mappings = {
       i = {
-        ["<Esc>"] = actions.close,
+        ["<Esc>"] = nil
       },
     },
   }
