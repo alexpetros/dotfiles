@@ -9,7 +9,7 @@ path+="/Applications/Sublime Text.app/Contents/SharedSupport/bin"
 path+="$HOME/.cargo/bin"
 path+="$HOME/.pyenv/shims"
 path+="$HOME/.fly/bin"
-path+="$HOME/code/hypermedia/chrome/depot_tools"
+path+="$HOME/code/chrome/depot_tools"
 
 # commands that should be available to non-interactive users
 alias gh-link="git remote -v | grep fetch | awk '{print \$2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//' | sed 's/\.git/\/tree\/main/'"

@@ -161,6 +161,7 @@ local actions = require("telescope.actions")
 require("telescope").setup({
   defaults = {
     -- path_display = { "smart" },
+    file_ignore_patterns = { "vendor/*" },
     mappings = {
       i = {
         ["<Esc>"] = nil

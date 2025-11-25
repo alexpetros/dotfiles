@@ -6,6 +6,7 @@ nnoremap ,d :b#<bar>bd#<CR>
 nnoremap <C-b> :make!<CR>
 
 " Fast save
+inoremap <D-s> <Esc>:w<cr>
 nnoremap <D-s> :w<cr>
 
 inoremap <Esc><BS> <C-w>
