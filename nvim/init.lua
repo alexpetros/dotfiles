@@ -167,6 +167,10 @@ require("telescope").setup({
         ["<Esc>"] = nil
       },
     },
+  },
+  pickers = {
+    find_command = { "rg", "--files", "--color", "never", "--hidden", "--glob", "!.git" },
+    live_grep = { additional_args = { "--hidden", "--glob", "!.git" } },
   }
 })
 
