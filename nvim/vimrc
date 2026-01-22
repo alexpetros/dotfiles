@@ -59,10 +59,10 @@ set shell=/bin/zsh
 autocmd BufWritePre * :%s/\s\+$//e
 
 "" unfamiliar file extensions
-autocmd BufNewFile,BufRead *.njk,*.html set ft=html
+autocmd BufNewFile,BufRead *.njk,*.html set filetype=html
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufFilePre,BufRead *.templ set filetype=templ
-" autocmd BufNewFile,BufFilePre,BufRead *.md set syntax=markdown
+autocmd BufNewFile,BufRead *.pl set filetype=prolog
 
 "" unfamiliar comment types extensions
 autocmd FileType templ setlocal commentstring=//\ %s
