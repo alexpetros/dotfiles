@@ -202,7 +202,7 @@ let g:slime_bracketed_paste = 1
 """" Emmet settings
 let g:user_emmet_leader_key='<C-t>'
 let g:user_emmet_install_global = 0
-autocmd FileType html,jinja,jinja.html,php,markdown,javascript,templ,rust EmmetInstall
+autocmd FileType html,jinja,jinja.html,php,markdown,javascript,templ,rust,xml EmmetInstall
 
 """" Theme settings
 "" to match background, set terminal to RGB(48,48,48)
