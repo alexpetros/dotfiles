@@ -175,3 +175,6 @@ require("telescope").setup({
 })
 
 require('telescope').load_extension('heading')
+
+-- TODO add "-->" pattern
+require('mini.align').setup()
