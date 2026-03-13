@@ -3,6 +3,10 @@ bindkey -e
 export SHELL="$(which zsh)"
 export EDITOR="nvim"
 
+# Delete path with meta delete
+autoload -U select-word-style
+select-word-style bash
+
 # tab stop size
 tabs -2
 
@@ -76,3 +80,4 @@ export NVM_DIR="$HOME/.nvm"
 
 source "$HOME/.zshrc.local"
 
+export PATH="/usr/local/bin:$PATH"
