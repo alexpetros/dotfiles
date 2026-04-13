@@ -92,70 +92,71 @@ cmp.setup({
   })
 })
 
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = {
-    "vim",
-    "vimdoc",
-    "query",
-    "rust",
-    "javascript",
-    "typescript",
-    "css",
-    "html",
-    "go",
-    "templ",
-  },
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = true,
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "gnn", -- set to `false` to disable one of the mappings
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
-    },
-  },
-  textobjects = {
-    select = {
-      enable = true,
 
-      -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
+-- Requires separate installation of the tree-sitter CLI
+require('nvim-treesitter').setup {
+  -- Directory to install parsers and queries to
+  -- It's ~/.local/share/nvim/site on my mac
+  install_dir = vim.fn.stdpath('data') .. '/site'
+}
+require('nvim-treesitter').install {
+  "vim", "vimdoc", "query", "rust", "javascript", "typescript", "css",
+  "html", "go", "templ", "lua"
+}
 
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ar"] = "@parameter.outer",
-        ["ir"] = "@parameter.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-        -- You can also use captures from other query groups like `locals.scm`
-        ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
-      },
-      selection_modes = {
-        ['@parameter.outer'] = 'v', -- charwise
-        ['@function.outer'] = 'V', -- linewise
-        ['@class.outer'] = '<c-v>', -- blockwise
-      },
-      include_surrounding_whitespace = true,
+require("nvim-treesitter-textobjects").setup {
+  select = {
+    enable = true,
+
+    lookahead = true, -- Automatically jump forward to textobj
+    selection_modes = {
+      ['@parameter.outer'] = 'v', -- charwise
+      ['@function.outer'] = 'V', -- linewise
+      ['@class.outer'] = '<c-v>', -- blockwise
     },
-    swap = {
-      enable = true,
-      swap_next = {
-        ["<leader>pj"] = "@parameter.inner",
-        ["<leader>fj"] = "@function.outer",
-      },
-      swap_previous = {
-        ["<leader>pk"] = "@parameter.inner",
-        ["<leader>fk"] = "@function.outer",
-      },
+    include_surrounding_whitespace = true,
+  },
+  swap = {
+    enable = true,
+    swap_next = {
+      ["<leader>pj"] = "@parameter.inner",
+      ["<leader>fj"] = "@function.outer",
+    },
+    swap_previous = {
+      ["<leader>pk"] = "@parameter.inner",
+      ["<leader>fk"] = "@function.outer",
     },
   },
 }
+
+local to_select = require "nvim-treesitter-textobjects.select".select_textobject
+local to_swap_next = require "nvim-treesitter-textobjects.swap".swap_next
+local to_swap_previous = require "nvim-treesitter-textobjects.swap".swap_previous
+
+local function set_to_keymap (keymap, func, textobject)
+  vim.keymap.set({ "x", "o" }, keymap, function()
+    func(textobject, "textobjects")
+  end)
+end
+
+local function set_normal_keymap (keymap, func, textobject)
+  vim.keymap.set('n', keymap, function()
+    func(textobject, "textobjects")
+  end)
+end
+
+set_to_keymap("af", to_select, "@function.outer")
+set_to_keymap("if", to_select, "@function.inner")
+set_to_keymap("ar", to_select, "@parameter.outer")
+set_to_keymap("ir", to_select, "@parameter.inner")
+set_to_keymap("ac", to_select, "@class.outer")
+set_to_keymap("ic", to_select, "@class.inner")
+set_to_keymap("as", to_select, "@scope.outer")
+set_normal_keymap("<leader>rj", to_swap_next, "@parameter.inner")
+set_normal_keymap("<leader>fj", to_swap_next, "@function.outer")
+set_normal_keymap("<leader>rk", to_swap_previous, "@parameter.inner")
+set_normal_keymap("<leader>fk", to_swap_previous, "@function.outer")
+
 
 local actions = require("telescope.actions")
 require("telescope").setup({
