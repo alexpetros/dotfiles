@@ -101,7 +101,7 @@ require('nvim-treesitter').setup {
 }
 require('nvim-treesitter').install {
   "vim", "vimdoc", "query", "rust", "javascript", "typescript", "css",
-  "html", "go", "templ", "lua"
+  "html", "go", "templ", "lua", "prolog"
 }
 
 require("nvim-treesitter-textobjects").setup {
